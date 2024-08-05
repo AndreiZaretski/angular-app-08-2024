@@ -1,0 +1,32 @@
+<mat-accordion>
+  <mat-expansion-panel class="nav" hideToggle>
+    <mat-expansion-panel-header class="nav-heder">
+      <mat-panel-title>
+        <div>
+          <p class="nav__text">Суперагент</p>
+          <p class="nav__text">Банк ВТБ(ПАО)</p>
+        </div>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <button mat-button class="nav__button" (click)="navigateTo(path.SUPERAGENT)">Суперагент</button>
+  </mat-expansion-panel>
+  <mat-expansion-panel class="nav" hideToggle>
+    <mat-expansion-panel-header class="nav__header">
+      <mat-panel-title>
+        <mat-icon>work</mat-icon>
+      </mat-panel-title>
+      <mat-panel-description class="nav__text"> Управление </mat-panel-description>
+    </mat-expansion-panel-header>
+    <button mat-button class="nav__button" (click)="navigateTo(path.MANAGEMENT)">Карточка контрагента</button>
+    <button mat-button class="nav__button" (click)="navigateTo(path.MANAGEMENT)">Договор контрагента</button>
+  </mat-expansion-panel>
+  <mat-expansion-panel class="nav" hideToggle>
+    <mat-expansion-panel-header class="nav__header">
+      <mat-panel-title>
+        <mat-icon>group</mat-icon>
+      </mat-panel-title>
+      <mat-panel-description class="nav__text"> Субагенты </mat-panel-description>
+    </mat-expansion-panel-header>
+    <button mat-button class="nav__button" (click)="navigateTo(path.SUBAGENT)">Субагенты</button>
+  </mat-expansion-panel>
+</mat-accordion>

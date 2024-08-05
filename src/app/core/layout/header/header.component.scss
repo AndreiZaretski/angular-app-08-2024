@@ -1,0 +1,21 @@
+@import 'src/styles/common.scss';
+
+:host {
+  display: flex;
+  background-color: $headers-background-color;
+  height: 70px;
+  align-items: center;
+  justify-content: end;
+}
+
+.user-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+
+.user-button mat-icon, .user-info__text {
+  color: $white-color;
+  margin: 0;
+}

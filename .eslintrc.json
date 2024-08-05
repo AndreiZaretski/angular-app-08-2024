@@ -61,6 +61,13 @@
       "files": ["*.html"],
       "extends": ["plugin:@angular-eslint/template/recommended", "plugin:@angular-eslint/template/accessibility"],
       "rules": {}
+    },
+    {
+      "files": ["*.scss"],
+      "extends": ["plugin:import/errors", "plugin:import/warnings"],
+      "rules": {
+      "import/no-unresolved": "off"
+      }
     }
   ]
 }
