@@ -10,7 +10,7 @@ interface Page {
   size: number;
 }
 
-interface User {
+export interface User {
   id: number;
   name: string;
   email: string;
@@ -23,5 +23,5 @@ interface Data {
   user_id: number;
   is_admin: boolean;
   is_ecp: boolean;
-  status: 'ACTIVE';
+  status: string;
 }

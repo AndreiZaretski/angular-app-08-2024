@@ -1,0 +1,82 @@
+<div class="mat-elevation-z8 user-table">
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="login">
+      <th mat-header-cell *matHeaderCellDef class="user-table__ceil">
+        <mat-checkbox
+          (change)="$event ? toggleAllRows() : null"
+          [checked]="selection.hasValue() && isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()"
+          [aria-label]="checkboxLabel()">
+        </mat-checkbox>
+        Логин
+      </th>
+      <td mat-cell *matCellDef="let row" class="user-table__ceil">
+        <mat-checkbox
+          (click)="$event.stopPropagation()"
+          (change)="$event ? selection.toggle(row) : null"
+          [checked]="selection.isSelected(row)"
+          [aria-label]="checkboxLabel(row)">
+        </mat-checkbox>
+        {{ row.name }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="user-table__ceil">E-mail</th>
+      <td mat-cell *matCellDef="let row" class="user-table__ceil">{{ row.email }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="user-table__ceil">Телефон</th>
+      <td mat-cell *matCellDef="let row" class="user-table__ceil">{{ row.phone }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="roles">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="user-table__ceil">Роли</th>
+      <td mat-cell *matCellDef="let row" class="user-table__ceil">{{ row.is_admin ? 'Администратор' : 'Пользователь' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="update_at">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="user-table__ceil">Дата изменения</th>
+      <td mat-cell *matCellDef="let row" class="user-table__ceil">{{ row.update_at | date: 'dd.MM.yyyy' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="create_at">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="user-table__ceil">Дата создания</th>
+      <td mat-cell *matCellDef="let row" class="user-table__ceil">{{ row.create_at | date: 'dd.MM.yyyy' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="user-table__ceil">Статус</th>
+      <td
+        mat-cell
+        *matCellDef="let row"
+        class="user-table__ceil"
+        [ngStyle]="{ color: row.status === 'ACTIVE' ? 'green' : 'red', cursor: 'pointer', 'min-width': '130px' }"
+        (click)="updateStatus(row.table_id); $event.stopPropagation()">
+        {{ row.status === 'ACTIVE' ? 'Активен' : 'Заблокирован' }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="is_ecp">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="user-table__ceil">Наличие ЭП</th>
+      <td mat-cell *matCellDef="let row" class="user-table__ceil">
+        @if (row.is_ecp) {
+          <mat-icon svgIcon="succes"></mat-icon>
+        } @else {
+          <mat-icon svgIcon="unsucces"></mat-icon>
+        }</td
+    ></ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="9">Не найдено пользователей</td>
+    </tr>
+  </table>
+  <div class="paginator-block">
+    <mat-paginator getRangeLabel="Jnj,hf;fnm" [pageSizeOptions]="[5, 10, 20]" aria-label="Выбрать"></mat-paginator>
+    <span>Количество выбранных записей {{ selection.selected.length }}</span>
+  </div>
+</div>

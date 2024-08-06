@@ -1,0 +1,14 @@
+@import 'src/styles/common.scss';
+.user-table {
+  text-align: center;
+  &__ceil {
+    text-align: center;
+  }
+}
+.paginator-block {
+  display: flex;
+  color: $text-grey-color;
+  align-items: center;
+  background-color: $white-color;
+  font-size: 12px;
+}
