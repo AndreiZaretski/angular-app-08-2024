@@ -2,4 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 32px;
+
+  .management-title {
+    align-self: flex-start;
+  }
 }

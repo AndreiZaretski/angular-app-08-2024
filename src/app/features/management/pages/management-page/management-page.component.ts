@@ -2,11 +2,12 @@ import { ChangeDetectionStrategy, Component, inject, OnInit, OnDestroy } from '@
 import { Subject, takeUntil } from 'rxjs';
 import { UserDataService } from 'src/app/core/services/user-data.service';
 import { TableUsersComponent } from '../../components/table-users/table-users.component';
+import { ShowFilterComponent } from '../../components/show-filter/show-filter.component';
 
 @Component({
   selector: 'app-management-page',
   standalone: true,
-  imports: [TableUsersComponent],
+  imports: [TableUsersComponent, ShowFilterComponent],
   templateUrl: './management-page.component.html',
   styleUrl: './management-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

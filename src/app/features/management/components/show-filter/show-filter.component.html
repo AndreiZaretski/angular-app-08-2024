@@ -1,0 +1,41 @@
+<cdk-accordion class="accordion">
+  <cdk-accordion-item
+    #accordionItem="cdkAccordionItem"
+    class="accordion__item"
+    role="button"
+    tabindex="0"
+    [attr.id]="'accordion__header'"
+    [attr.aria-expanded]="accordionItem.expanded"
+    [attr.aria-controls]="'accordion-body'">
+    <div class="accordion__item-header">
+      <div class="accordion__buttons">
+        <button class="accordion__button" mat-flat-button (click)="$event.stopPropagation()">
+          <span class="accordion__button-text">Добавить</span>
+          <mat-icon class="accordion__button-icon">add_circle_outline</mat-icon>
+        </button>
+        <button class="accordion__button" mat-flat-button (click)="$event.stopPropagation()">
+          <span class="accordion__button-text">Разблокировать</span>
+          <mat-icon class="accordion__button-icon">expand_circle_down</mat-icon>
+        </button>
+        <button class="accordion__button" mat-flat-button (click)="$event.stopPropagation()">
+          <span class="accordion__button-text">Заблокировать</span>
+          <mat-icon class="accordion__button-icon">cancel_outline</mat-icon>
+        </button>
+      </div>
+      <span class="accordion__item-description">
+        <button class="accordion__button-filter" mat-flat-button (click)="accordionItem.toggle()">
+          <span>Basic</span>
+          <mat-icon>filter_list</mat-icon>
+        </button>
+      </span>
+    </div>
+    <div
+      class="accordion__item-body"
+      role="region"
+      [style.display]="accordionItem.expanded ? '' : 'none'"
+      [attr.id]="'accordion-body'"
+      [attr.aria-labelledby]="'accordion-header'">
+      <app-filter-form></app-filter-form>
+    </div>
+  </cdk-accordion-item>
+</cdk-accordion>

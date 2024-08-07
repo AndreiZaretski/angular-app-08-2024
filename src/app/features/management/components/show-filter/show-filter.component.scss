@@ -1,0 +1,39 @@
+@import 'src/styles/common.scss';
+:host {
+  width: 100%;
+}
+.accordion{
+ 
+  &__item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+
+  &__button {
+    background-color: $headers-background-color;
+    display: flex;
+    gap: 10px;
+  }
+
+  &__button-text {
+    order: 1;
+  }
+
+  &__button-icon {
+    order: 2;
+  }
+
+  &__button-filter {
+    background-color: $button-grey-color;
+    color: $text-grey-color;
+  }
+}
+
