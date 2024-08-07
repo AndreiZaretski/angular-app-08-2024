@@ -13,6 +13,8 @@ import { CHECK_FALSE, CHECK_TRUE } from 'src/app/core/constants/icons';
 import { MatIconModule } from '@angular/material/icon';
 import { Subject, takeUntil } from 'rxjs';
 import { UsersTableData } from 'src/app/core/models/users-table-data.interface';
+import { FilterTablePipe } from 'src/app/core/pipes/filter-table.pipe';
+import { FilterFormDataService } from 'src/app/core/services/filter-form-data.service';
 
 @Component({
   selector: 'app-table-users',
@@ -28,6 +30,7 @@ import { UsersTableData } from 'src/app/core/models/users-table-data.interface';
     NgStyle,
     MatCheckboxModule,
     MatIconModule,
+    FilterTablePipe,
   ],
   templateUrl: './table-users.component.html',
   styleUrl: './table-users.component.scss',
@@ -42,11 +45,15 @@ export class TableUsersComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private userDataService = inject(UserDataService);
 
-  dataSource = new MatTableDataSource<UsersTableData>([]);
+  dataSource: MatTableDataSource<UsersTableData> = new MatTableDataSource<UsersTableData>([]);
 
   selection = new SelectionModel<UsersTableData>(true, []);
 
   private paginatorIntl = inject(MatPaginatorIntl);
+
+  private filterFormDataService = inject(FilterFormDataService);
+
+  filterValue = this.filterFormDataService.formDataPublic$;
 
   private readonly iconService = inject(IconService);
 

@@ -61,10 +61,11 @@ export class FilterFormComponent {
 
   resetForm() {
     this.filterForm.reset();
+    this.filterFormDataService.changeValue(null);
   }
 
   resetCloseForm() {
-    this.filterForm.reset();
+    // this.filterForm.reset();
     this.closeForm.emit(false);
   }
 

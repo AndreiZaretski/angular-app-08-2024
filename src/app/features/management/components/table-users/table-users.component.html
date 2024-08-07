@@ -1,5 +1,5 @@
 <div class="mat-elevation-z8 user-table">
-  <table mat-table [dataSource]="dataSource" matSort>
+  <table mat-table [dataSource]="dataSource | filterTable: (filterValue | async)" matSort>
     <ng-container matColumnDef="login">
       <th mat-header-cell *matHeaderCellDef class="user-table__ceil">
         <mat-checkbox

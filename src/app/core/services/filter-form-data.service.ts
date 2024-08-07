@@ -10,7 +10,7 @@ export class FilterFormDataService {
 
   formDataPublic$ = this.formData$.pipe();
 
-  changeValue(data: FilterFormData) {
+  changeValue(data: FilterFormData | null) {
     this.formData$.next(data);
   }
 }
