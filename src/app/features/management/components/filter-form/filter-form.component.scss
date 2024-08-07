@@ -1,0 +1,24 @@
+@import 'src/styles/common.scss';
+
+.filter-form {
+  &__block {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  
+  &__buttons {
+    display: flex;
+    justify-content: start;
+    gap: 24px;
+  }
+
+  &__submit {
+    background-color: $headers-background-color;
+  }
+
+  &__reset {
+    background-color: $button-grey-color;
+    color: $text-grey-color;
+  }
+}

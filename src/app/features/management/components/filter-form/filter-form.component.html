@@ -1,1 +1,86 @@
-<p>filter-form works!</p>
+<mat-card appearance="outlined">
+  <mat-card-content>
+    <h3>Фильтр</h3>
+    <form class="filter-form" [formGroup]="filterForm" (submit)="submit()" (reset)="resetForm()">
+      <div class="filter-form__block">
+        <mat-form-field class="filter-form__field">
+          <mat-label>Логин</mat-label>
+          <input matInput type="text" formControlName="login" />
+          <button matSuffix mat-icon-button aria-label="Clear" (click)="filterForm.controls.login.setValue('')">
+            <mat-icon>cancel</mat-icon>
+          </button>
+          @if (filterForm.controls.login.invalid) {
+            <mat-error>Введите логин</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field class="filter-form__field">
+          <mat-label>Телефон</mat-label>
+          <input matInput formControlName="phone" mask="+0 (000) 000-00-00" placeholder="+7 (915) 333-22-11" />
+          <button matSuffix mat-icon-button aria-label="Clear" (click)="filterForm.controls.phone.setValue('')">
+            <mat-icon>cancel</mat-icon>
+          </button>
+
+          @if (filterForm.controls.phone.invalid) {
+            <mat-error>Введите корректный телефон</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field class="filter-form__field">
+          <mat-label>Дата создания</mat-label>
+          <input matInput placeholder="ДД.ММ.ГГГГ" formControlName="create_at" [matDatepicker]="datepicker" />
+          <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+          <mat-datepicker #datepicker></mat-datepicker>
+          @if (filterForm.controls.create_at.errors) {
+            <mat-error>Введите дату</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Статус</mat-label>
+          <mat-select formControlName="status">
+            @for (status of statuses; track status) {
+              <mat-option [value]="status.value">{{ status.name }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="filter-form__field">
+          <mat-label>E-mail</mat-label>
+          <input matInput type="text" formControlName="email" />
+          <button matSuffix mat-icon-button aria-label="Clear" (click)="filterForm.controls.email.setValue('')">
+            <mat-icon>cancel</mat-icon>
+          </button>
+          @if (filterForm.controls.email.invalid) {
+            <mat-error>Введите корректный email</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Роль</mat-label>
+          <mat-select formControlName="role">
+            @for (role of roles; track role) {
+              <mat-option [value]="role">{{ role }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="filter-form__field">
+          <mat-label>Дата обновления</mat-label>
+          <input matInput placeholder="ДД.ММ.ГГГГ" formControlName="update_at" [matDatepicker]="datepickerUpdate" />
+
+          <mat-datepicker-toggle matIconSuffix [for]="datepickerUpdate"></mat-datepicker-toggle>
+          <mat-datepicker #datepickerUpdate></mat-datepicker>
+          @if (filterForm.controls.update_at.invalid) {
+            <mat-error>Введите дату</mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <div class="filter-form__buttons">
+        <button class="filter-form__submit" mat-flat-button type="submit">Применить</button>
+        <button class="filter-form__reset" type="button" mat-flat-button (click)="resetCloseForm()">Отмена</button>
+        <button class="filter-form__reset" type="reset" mat-flat-button>Сбросить</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

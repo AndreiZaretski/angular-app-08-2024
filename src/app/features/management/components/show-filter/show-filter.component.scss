@@ -35,5 +35,9 @@
     background-color: $button-grey-color;
     color: $text-grey-color;
   }
+
+  &__item-body {
+    padding-top: 32px;
+  }
 }
 

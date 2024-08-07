@@ -6,13 +6,13 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AsyncPipe, DatePipe, NgStyle } from '@angular/common';
-import { UsersTableData } from 'src/app/core/models/users-table-data';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SelectionModel } from '@angular/cdk/collections';
 import { IconService } from 'src/app/core/services/icon.service';
 import { CHECK_FALSE, CHECK_TRUE } from 'src/app/core/constants/icons';
 import { MatIconModule } from '@angular/material/icon';
 import { Subject, takeUntil } from 'rxjs';
+import { UsersTableData } from 'src/app/core/models/users-table-data.interface';
 
 @Component({
   selector: 'app-table-users',

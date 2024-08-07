@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { HttpService } from './http.service';
-import { UsersTableData } from '../models/users-table-data';
+import { UsersTableData } from '../models/users-table-data.interface';
 import { mergeUserData } from '../utils/mergeUersData';
 
 @Injectable({

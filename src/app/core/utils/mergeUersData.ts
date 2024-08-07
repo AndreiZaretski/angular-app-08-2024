@@ -1,5 +1,5 @@
-import { User, UsersData } from '../models/users-data';
-import { UsersTableData } from '../models/users-table-data';
+import { User, UsersData } from '../models/users-data.interface';
+import { UsersTableData } from '../models/users-table-data.interface';
 
 export const mergeUserData = (usersData: UsersData): UsersTableData[] => {
   const userMap = new Map<number, User>();

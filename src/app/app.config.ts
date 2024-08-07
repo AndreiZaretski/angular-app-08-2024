@@ -3,7 +3,8 @@ import { provideRouter } from '@angular/router';
 
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideClientHydration } from '@angular/platform-browser';
-import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { provideEnvironmentNgxMask } from 'ngx-mask';
 import { routes } from './app.routes';
 import { addUrlInterceptor } from './core/interceptors/add-url.interceptor';
 
@@ -13,6 +14,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimationsAsync(),
     provideClientHydration(),
-    provideHttpClient(withInterceptors([addUrlInterceptor])),
+    provideHttpClient(withFetch(), withInterceptors([addUrlInterceptor])),
+    provideEnvironmentNgxMask(),
   ],
 };
