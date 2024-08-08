@@ -1,7 +1,9 @@
 @import 'src/styles/common.scss';
+:host {
+  width: 100%;
+}
 .user-table {
   width: 100%;
-  text-align: center;
   &__ceil {
     text-align: center;
   }

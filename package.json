@@ -10,6 +10,7 @@
     "lint": "ng lint",
     "prepare": "husky && husky install",
     "lint-staged": "lint-staged --relative",
+    "build:ssr": "ng build --configuration production",
     "serve:ssr:angular-app-08-2024": "node dist/angular-app-08-2024/server/server.mjs"
   },
   "lint-staged": {
