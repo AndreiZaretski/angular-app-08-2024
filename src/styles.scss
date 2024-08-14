@@ -1,8 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'src/styles/common.scss';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Moscow Sans, "Helvetica Neue", sans-serif; background-color: $main-background-color;}
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family:
+    Moscow Sans,
+    'Helvetica Neue',
+    sans-serif;
+  background-color: $main-background-color;
+}
 
 * {
   box-sizing: border-box;
